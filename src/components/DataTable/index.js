@@ -6,21 +6,25 @@ const DataTable = () => {
   return (
     <div>
       <table border="1" className="data-table">
-        <tr>
-          {tableHeaders.map((label) => {
-            return <th>{label}</th>;
-          })}
-        </tr>
+        <thead>
+          <tr>
+            {tableHeaders.map((label) => {
+              return <th key={label}>{label}</th>;
+            })}
+          </tr>
+        </thead>
 
-        {dummyTableData.map((data) => {
-          return (
-            <tr>
-              <td>{data["s.no"]}</td>
-              <td>{data["percentage.funded"]}</td>
-              <td>{data["amt.pledged"]}</td>
-            </tr>
-          );
-        })}
+        <tbody>
+          {dummyTableData.map((data) => {
+            return (
+              <tr key={data["s.no"]}>
+                <td>{data["s.no"]}</td>
+                <td>{data["percentage.funded"]}</td>
+                <td>{data["amt.pledged"]}</td>
+              </tr>
+            );
+          })}
+        </tbody>
       </table>
     </div>
   );

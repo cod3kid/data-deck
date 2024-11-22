@@ -3,6 +3,7 @@ import useCrowdFundData from "./useCrowdFundData";
 import { tableHeaders, DATA_PER_PAGE } from "../../../utils/constants";
 import "./style.css";
 import Table from "../../common/Table";
+import Button from "../../common/Button";
 
 const DataTable = () => {
   const crowdFundData = useCrowdFundData();
@@ -24,15 +25,15 @@ const DataTable = () => {
   return (
     <div>
       <Table
+        listKey="s.no"
         data={crowdFundData.slice(
           (currentPage - 1) * DATA_PER_PAGE,
           (currentPage - 1) * DATA_PER_PAGE + 5
         )}
         tableHeaders={tableHeaders}
       />
-
-      <button onClick={handlePrevClick}>Prev</button>
-      <button onClick={handleNextClick}>Next</button>
+      <Button label="Prev" onClick={handlePrevClick} />{" "}
+      <Button label="Next" onClick={handleNextClick} />
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import "./style.css";
 
-const Table = ({ data, tableHeaders }) => {
+const Table = ({ listKey, data, tableHeaders }) => {
   return (
     <table className="table">
       <thead>
@@ -14,9 +14,9 @@ const Table = ({ data, tableHeaders }) => {
       <tbody>
         {data.map((content) => {
           return (
-            <tr key={content["s.no"]}>
+            <tr key={content[listKey]}>
               {tableHeaders.map(({ value }) => (
-                <td key={value}>{content[value]}</td>
+                <td key={`${listKey}|${value}`}>{content[value]}</td>
               ))}
             </tr>
           );

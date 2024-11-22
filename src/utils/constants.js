@@ -1,6 +1,13 @@
 export const DATA_PER_PAGE = 5;
 
-export const tableHeaders = ["S.No.", "Percentage funded", "Amount pledged"];
+export const tableHeaders = [
+  {
+    label: "S.No.",
+    value: "s.no",
+  },
+  { label: "Percentage funded", value: "percentage.funded" },
+  { label: "Amount pledged", value: "amt.pledged" },
+];
 
 export const dummyTableData = [
   {

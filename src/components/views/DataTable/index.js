@@ -3,24 +3,11 @@ import useCrowdFundData from "./useCrowdFundData";
 import { tableHeaders, DATA_PER_PAGE } from "../../../utils/constants";
 import "./style.css";
 import Table from "../../common/Table";
-import Button from "../../common/Button";
+import Pagination from "../../common/Pagination";
 
 const DataTable = () => {
   const crowdFundData = useCrowdFundData();
   const [currentPage, setCurrentPage] = useState(1);
-
-  const handlePrevClick = () => {
-    if (currentPage > 1) {
-      setCurrentPage((prev) => prev - 1);
-    }
-  };
-
-  const handleNextClick = () => {
-    let totalData = crowdFundData.length;
-    if (currentPage * DATA_PER_PAGE <= totalData) {
-      setCurrentPage((prev) => prev + 1);
-    }
-  };
 
   return (
     <div>
@@ -32,8 +19,11 @@ const DataTable = () => {
         )}
         tableHeaders={tableHeaders}
       />
-      <Button label="Prev" onClick={handlePrevClick} />{" "}
-      <Button label="Next" onClick={handleNextClick} />
+      <Pagination
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+        totalPages={Math.ceil(crowdFundData.length / DATA_PER_PAGE)}
+      />
     </div>
   );
 };

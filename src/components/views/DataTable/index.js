@@ -1,6 +1,6 @@
 import "./style.css";
 import useCrowdFundData from "./useCrowdFundData";
-import { tableHeaders, DATA_PER_PAGE } from "../../utils/constants";
+import { tableHeaders, DATA_PER_PAGE } from "../../../utils/constants";
 import { useState } from "react";
 
 const DataTable = () => {
@@ -21,7 +21,7 @@ const DataTable = () => {
   };
 
   return (
-    <div>
+    <div className="data-card">
       <table border="1" className="data-table">
         <thead>
           <tr>

@@ -2,11 +2,15 @@ import "./style.css";
 
 const Table = ({ listKey, data, tableHeaders }) => {
   return (
-    <table className="table">
+    <table className="table" role="table" aria-label="Data Table">
       <thead>
         <tr>
           {tableHeaders.map(({ label }) => {
-            return <th key={label}>{label}</th>;
+            return (
+              <th scope="col" key={label}>
+                {label}
+              </th>
+            );
           })}
         </tr>
       </thead>
@@ -14,9 +18,11 @@ const Table = ({ listKey, data, tableHeaders }) => {
       <tbody>
         {data.map((content) => {
           return (
-            <tr key={content[listKey]}>
+            <tr scope="row" key={content[listKey]}>
               {tableHeaders.map(({ value }) => (
-                <td key={`${listKey}|${value}`}>{content[value]}</td>
+                <td role="cell" key={`${listKey}|${value}`}>
+                  {content[value]}
+                </td>
               ))}
             </tr>
           );

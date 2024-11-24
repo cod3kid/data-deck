@@ -7,10 +7,18 @@ const Pagination = ({ currentPage, setCurrentPage, totalPages }) => {
   };
 
   return (
-    <>
-      <Button label="Prev" onClick={() => handlePageChange(currentPage - 1)} />{" "}
-      <Button label="Next" onClick={() => handlePageChange(currentPage + 1)} />
-    </>
+    <div role="navigation" aria-label="Pagination">
+      <Button
+        aria-label="Previous Page"
+        label="Prev"
+        onClick={() => handlePageChange(currentPage - 1)}
+      />{" "}
+      <Button
+        aria-label="Next Page"
+        label="Next"
+        onClick={() => handlePageChange(currentPage + 1)}
+      />
+    </div>
   );
 };
 

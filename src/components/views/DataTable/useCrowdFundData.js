@@ -31,7 +31,7 @@ function useCrowdFundData() {
     fetchData();
   }, []);
 
-  return crowdFundData;
+  return { crowdFundData, isLoading };
 }
 
 export default useCrowdFundData;

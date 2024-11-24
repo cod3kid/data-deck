@@ -4,10 +4,18 @@ import { tableHeaders, DATA_PER_PAGE } from "../../../utils/constants";
 import "./style.css";
 import Table from "../../common/Table";
 import Pagination from "../../common/Pagination";
+import Spinner from "../../common/Spinner";
 
 const DataTable = () => {
-  const crowdFundData = useCrowdFundData();
+  const { crowdFundData, isLoading } = useCrowdFundData();
   const [currentPage, setCurrentPage] = useState(1);
+
+  if (isLoading)
+    return (
+      <div className="spinner-parent">
+        <Spinner />
+      </div>
+    );
 
   return (
     <div>

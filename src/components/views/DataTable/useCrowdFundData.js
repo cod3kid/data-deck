@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { CROWD_FUND_DATA_API } from "../../../utils/apis";
 
 function useCrowdFundData() {
   const [crowdFundData, setCrowdFundData] = useState([]);
@@ -10,9 +11,7 @@ function useCrowdFundData() {
     setError(null);
 
     try {
-      const response = await fetch(
-        "https://raw.githubusercontent.com/saaslabsco/frontend-assignment/refs/heads/master/frontend-assignment.json"
-      );
+      const response = await fetch(CROWD_FUND_DATA_API);
 
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
